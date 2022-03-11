@@ -17,13 +17,17 @@ object Libs {
 	private val ext_junit = "androidx.test.ext:junit:${Versions.ext_junit_version}"
 	private val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso_core_version}"
 
-	val appLibraries = listOf(
+	val coreModuleLibraries = listOf(
 		kotlinStdLib,
-		material,
-		core_ktx,
-		appcompat,
-		constraintlayout
+		core_ktx
 	)
+
+	val uiLibraries =
+		listOf(
+			material,
+			appcompat,
+			constraintlayout
+		)
 
 	val androidTestLibraries = listOf(
 		ext_junit,
@@ -45,6 +49,12 @@ fun DependencyHandler.kapt(list: List<String>) {
 fun DependencyHandler.implementation(list: List<String>) {
 	list.forEach { dependency ->
 		add("implementation", dependency)
+	}
+}
+
+fun DependencyHandler.api(list: List<String>) {
+	list.forEach { dependency ->
+		add("api", dependency)
 	}
 }
 

@@ -1,3 +1,5 @@
+import org.gradle.api.JavaVersion
+
 object AppConfig {
 	const val compileSdk = 31
 	const val minSdk = 21
@@ -9,4 +11,10 @@ object AppConfig {
 	const val androidTestInstrumentation = "androidx.test.runner.AndroidJUnitRunner"
 	const val proguardConsumerRules =  "proguard-rules.pro"
 	const val proguardConsumerFile = "proguard-android-optimize.txt"
+}
+
+object AndroidConfig {
+	const val jvmTarget = "1.8"
+	val sourceCompatibility = JavaVersion.VERSION_1_8
+	val targetCompatibility = JavaVersion.VERSION_1_8
 }

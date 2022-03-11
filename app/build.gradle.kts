@@ -18,7 +18,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
             proguardFiles (
                 getDefaultProguardFile(AppConfig.proguardConsumerFile), AppConfig.proguardConsumerRules
@@ -40,7 +40,9 @@ android {
 }
 
 dependencies {
-    implementation(Libs.appLibraries)
+    implementation(Libs.coreModuleLibraries)
     testImplementation(Libs.testLibraries)
     androidTestImplementation(Libs.androidTestLibraries)
+
+    implementation(project(path = ":coreUi"))
 }
