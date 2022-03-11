@@ -1,2 +1,5 @@
 rootProject.name = "Study Application"
-include (":app")
+include (
+	":app",
+	":coreUi"
+)
