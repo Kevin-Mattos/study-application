@@ -1,7 +1,7 @@
 object Versions {
 
 	//app
-	const val gradle_version = "7.1.1"
+	const val gradle_version = "7.1.2"
 	const val kotlin_version = "1.6.10"
 
 
@@ -10,6 +10,8 @@ object Versions {
 	const val appcompat_version = "1.4.1"
 	const val material_version = "1.5.0"
 	const val constraintlayout_version = "2.1.3"
+	const val compose_version = "1.1.1"
+	const val compose_activity_version = "1.4.0"
 
 	//tests
 	const val junit_version = "4.13.2"
