@@ -85,5 +85,5 @@ fun DependencyHandler.testImplementation(list: List<String>) {
 }
 
 fun DependencyHandlerScope.composeUi() {
-	api(Libs.compose)
+	implementation(Libs.compose)
 }

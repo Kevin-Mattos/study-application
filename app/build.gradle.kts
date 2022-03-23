@@ -20,7 +20,6 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
-        compose = true
     }
 
     buildTypes {
@@ -38,10 +37,6 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.compose_version
     }
 }
 
