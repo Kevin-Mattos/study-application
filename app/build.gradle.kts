@@ -17,6 +17,12 @@ android {
         testInstrumentationRunner = AppConfig.androidTestInstrumentation
     }
 
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+        compose = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -30,12 +36,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    viewBinding {
-        android.buildFeatures.viewBinding = true
-    }
-
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose_version
     }
 }
 

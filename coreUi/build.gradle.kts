@@ -13,9 +13,20 @@ android {
 		testInstrumentationRunner = AppConfig.androidTestInstrumentation
 	}
 
+	buildFeatures {
+		viewBinding = true
+		dataBinding = true
+		compose = true
+	}
+
 	kotlinOptions {
 		jvmTarget = AndroidConfig.jvmTarget
 	}
+
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose_version
+    }
 
 	compileOptions {
 		sourceCompatibility = AndroidConfig.sourceCompatibility
@@ -31,4 +42,6 @@ dependencies {
 
 	testImplementation(Libs.testLibraries)
 	androidTestImplementation(Libs.androidTestLibraries)
+
+	composeUi()
 }
