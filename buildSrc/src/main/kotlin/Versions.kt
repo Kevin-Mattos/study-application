@@ -13,6 +13,8 @@ object Versions {
 	const val compose_version = "1.1.1"
 	const val compose_activity_version = "1.4.0"
 	const val koin_version = "3.1.6"
+	const val retrofit_version = "2.9.0"
+	const val okhttp3_version =  "4.9.0"
 
 	//tests
 	const val junit_version = "4.13.2"

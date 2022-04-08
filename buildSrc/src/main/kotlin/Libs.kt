@@ -23,11 +23,17 @@ object Libs {
 	private const val koinNavigation = "io.insert-koin:koin-androidx-navigation:${Versions.koin_version}"
 	private const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin_version}"
 
+	//retrofit
+	private const val retrofitCoreLib = "com.squareup.retrofit2:retrofit:${Versions.retrofit_version}"
+	private const val retrofitGsonLib = "com.squareup.retrofit2:converter-gson:${Versions.retrofit_version}"
+	private const val okHttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3_version}"
+	private const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp3_version}"
+
 	//tests
 	private const val junit = "junit:junit:${Versions.junit_version}"
 	private const val ext_junit = "androidx.test.ext:junit:${Versions.ext_junit_version}"
 	private const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso_core_version}"
-	private const val koinTestJunit = "io.insert-koin:koin-test-junit4:${Versions.espresso_core_version}"
+	private const val koinTestJunit = "io.insert-koin:koin-test-junit4:${Versions.koin_version}"
 
 
 	val coreModuleLibraries = listOf(
@@ -63,6 +69,13 @@ object Libs {
 		koinMainFeatures,
 		koinNavigation,
 		koinCompose,
+	)
+
+	val retrofit = listOf(
+		retrofitCoreLib,
+		retrofitGsonLib,
+		okHttp3,
+		okHttpLogging,
 	)
 }
 
@@ -103,4 +116,8 @@ fun DependencyHandler.composeUi() {
 
 fun DependencyHandler.koin() {
 	implementation(Libs.koin)
+}
+
+fun DependencyHandler.retrofit() {
+	api(Libs.retrofit)
 }
