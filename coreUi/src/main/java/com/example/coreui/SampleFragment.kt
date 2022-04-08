@@ -7,10 +7,11 @@ import com.example.coreui.base.viewmodel.Resource
 import com.example.coreui.base.viewmodel.Resource.Companion.success
 import com.example.coreui.base.viewmodel.StateViewModel
 import kotlinx.coroutines.delay
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SampleFragment: ComposeStateFragment<Int>() {
 	//TODO KOIN
-	override val viewModel: SampleStateViewModel = SampleStateViewModel()
+	override val viewModel: SampleStateViewModel by viewModel()
 
 	@Composable
 	override fun OnSuccess(data: Int?) {
