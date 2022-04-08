@@ -10,7 +10,6 @@ import kotlinx.coroutines.delay
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SampleFragment: ComposeStateFragment<Int>() {
-	//TODO KOIN
 	override val viewModel: SampleStateViewModel by viewModel()
 
 	@Composable
@@ -26,7 +25,7 @@ class SampleFragment: ComposeStateFragment<Int>() {
 	class SampleStateViewModel: StateViewModel<Int>() {
 
 		override val initialState: Resource<Int>
-			get() = success(4)
+			get() = success(6)
 
 		override suspend fun fetchValue(): Resource<Int> {
 			delay(3000)
