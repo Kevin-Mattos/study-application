@@ -2,6 +2,7 @@ package com.example.studyapplication
 
 import android.app.Application
 import com.example.coreui.di.coreUiModule
+import com.example.datasource.dataSourceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -15,7 +16,8 @@ class MainApplication: Application() {
 			androidLogger(if (BuildConfig.DEBUG) Level.ERROR else Level.NONE)
 			androidContext(this@MainApplication)
 			modules(
-				coreUiModule
+				coreUiModule,
+				dataSourceModule
 			)
 		}
 	}

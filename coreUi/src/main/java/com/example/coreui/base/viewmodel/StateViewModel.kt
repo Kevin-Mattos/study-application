@@ -1,5 +1,6 @@
 package com.example.coreui.base.viewmodel
 
+import com.example.datasource.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -30,22 +31,4 @@ abstract class StateViewModel<O> : BaseViewModel() {
 	}
 
 	abstract suspend fun fetchValue(): Resource<O>
-}
-
-
-sealed class Resource<T>(val data: T?) {
-
-	class Loading<T>(data: T? = null) : Resource<T>(data)
-	class Success<T>(data: T) : Resource<T>(data)
-	class Error<T>(data: T? = null, val throwable: Throwable? = null) : Resource<T>(data)
-
-	fun isSuccess() = this is Success
-	fun isError() = this is Error
-	fun isLoading() = this is Loading
-
-	companion object {
-		fun <T> success(data: T) = Success(data)
-		fun <T> error(data: T? = null, throwable: Throwable? = null) = Error(data, throwable)
-		fun <T> loading(data: T? = null) = Loading(data)
-	}
 }

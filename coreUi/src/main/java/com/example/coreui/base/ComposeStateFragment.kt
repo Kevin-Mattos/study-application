@@ -11,11 +11,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import com.example.coreui.base.viewmodel.Resource
 import com.example.coreui.base.viewmodel.StateViewModel
 import com.example.coreui.components.ShimmerAnimation
 import com.example.coreui.components.ShimmerItemRow
 import com.example.coreui.theme.MyTheme
+import com.example.datasource.Resource
 
 abstract class ComposeStateFragment<O> : Fragment() {
 
