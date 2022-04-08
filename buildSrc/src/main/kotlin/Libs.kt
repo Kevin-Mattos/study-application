@@ -1,5 +1,4 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 object Libs {
 	//std
@@ -84,6 +83,6 @@ fun DependencyHandler.testImplementation(list: List<String>) {
 	}
 }
 
-fun DependencyHandlerScope.composeUi() {
+fun DependencyHandler.composeUi() {
 	implementation(Libs.compose)
 }
