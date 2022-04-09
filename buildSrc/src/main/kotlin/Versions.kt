@@ -12,6 +12,7 @@ object Versions {
 	const val constraintlayout_version = "2.1.3"
 	const val compose_version = "1.1.1"
 	const val compose_activity_version = "1.4.0"
+	const val koin_version = "3.1.6"
 
 	//tests
 	const val junit_version = "4.13.2"
