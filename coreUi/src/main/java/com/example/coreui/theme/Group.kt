@@ -54,8 +54,9 @@ fun MyTheme(content: @Composable () -> Unit) {
 		MyColors.light.getColors(isLightTheme)
 	else
 		MyColors.dark.getColors(isLightTheme)
+	//todo fix theme
 	MaterialTheme(
-		colors = colors,
+//		colors = colors,
 		content = content
 	)
 

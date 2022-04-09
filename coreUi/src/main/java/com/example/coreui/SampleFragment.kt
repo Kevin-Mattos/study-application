@@ -1,5 +1,7 @@
 package com.example.coreui
 
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import com.example.coreui.base.ComposeStateFragment
@@ -15,11 +17,6 @@ class SampleFragment : ComposeStateFragment<CepResponse>() {
 	@Composable
 	override fun OnSuccess(data: CepResponse?) {
 		Text(text = "teste do kevinho ${data?.logradouro}")
-	}
-
-	@Composable
-	override fun OnError(data: CepResponse?, throwable: Throwable?) {
-		Text(text = "ERRO $throwable")
 	}
 
 	class SampleStateViewModel(private val service: SampleCepService) :

@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 abstract class StateViewModel<O> : BaseViewModel() {
 
 	open val initialState: Resource<O> = Resource.loading()
+	protected var lastFetchedValue: O? = null
 
 	protected val _stateLiveData: MutableStateFlow<Resource<O>> by lazy {
 		MutableStateFlow(initialState).apply {
@@ -20,14 +21,20 @@ abstract class StateViewModel<O> : BaseViewModel() {
 	val stateLiveData: StateFlow<Resource<O>> get() = _stateLiveData
 
 
-	protected open suspend fun tryAgain() = _stateLiveData.apply {
-		//todo should emit loading, but not initial
-		emit(initialState)
-		loadValue()
+	open fun tryAgain() = launchIO {
+		_stateLiveData.apply {
+			emit(Resource.loading(lastFetchedValue))
+			loadValue()
+		}
 	}
 
 	private suspend fun MutableStateFlow<Resource<O>>.loadValue() {
-		emit(fetchValue())
+		fetchValue().apply {
+			if(isSuccess()) {
+				lastFetchedValue = data
+			}
+			emit(this)
+		}
 	}
 
 	abstract suspend fun fetchValue(): Resource<O>
