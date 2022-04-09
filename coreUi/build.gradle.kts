@@ -44,4 +44,5 @@ dependencies {
 	androidTestImplementation(Libs.androidTestLibraries)
 
 	composeUi()
+	koin()
 }

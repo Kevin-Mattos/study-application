@@ -44,6 +44,7 @@ dependencies {
     implementation(Libs.coreModuleLibraries)
     testImplementation(Libs.testLibraries)
     androidTestImplementation(Libs.androidTestLibraries)
+    koin()
 
     implementation(project(path = ":coreUi"))
 }
