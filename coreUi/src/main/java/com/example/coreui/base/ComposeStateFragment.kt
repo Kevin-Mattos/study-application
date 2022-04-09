@@ -36,7 +36,6 @@ abstract class ComposeStateFragment<O> : ComposeFragment() {
 	@Composable
 	abstract fun OnSuccess(data: O?)
 
-	//TODO: Make on error open
 	@Composable
 	open fun OnError(data: O?, throwable: Throwable?) {
 		LazyColumn {
