@@ -47,4 +47,5 @@ dependencies {
     koin()
 
     implementation(project(path = ":coreUi"))
+    implementation(project(path = ":datasource"))
 }

@@ -1,35 +1,29 @@
 package com.example.coreui
 
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import com.example.coreui.base.ComposeStateFragment
-import com.example.coreui.base.viewmodel.Resource
-import com.example.coreui.base.viewmodel.Resource.Companion.success
 import com.example.coreui.base.viewmodel.StateViewModel
-import kotlinx.coroutines.delay
+import com.example.datasource.Resource
+import com.example.datasource.models.response.CepResponse
+import com.example.datasource.services.SampleCepService
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SampleFragment: ComposeStateFragment<Int>() {
+class SampleFragment : ComposeStateFragment<CepResponse>() {
 	override val viewModel: SampleStateViewModel by viewModel()
 
 	@Composable
-	override fun OnSuccess(data: Int?) {
-		Text(text = "teste do kevinho $data")
+	override fun OnSuccess(data: CepResponse?) {
+		Text(text = "teste do kevinho ${data?.logradouro}")
 	}
 
-	@Composable
-	override fun OnError(data: Int?, throwable: Throwable?) {
-		Text(text = "ERRO $data")
-	}
+	class SampleStateViewModel(private val service: SampleCepService) :
+		StateViewModel<CepResponse>() {
 
-	class SampleStateViewModel: StateViewModel<Int>() {
-
-		override val initialState: Resource<Int>
-			get() = success(6)
-
-		override suspend fun fetchValue(): Resource<Int> {
-			delay(3000)
-			return success(2)
+		override suspend fun fetchValue(): Resource<CepResponse> {
+			return service.getCep("65900-850")
 		}
 	}
 }

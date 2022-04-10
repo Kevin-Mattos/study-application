@@ -1,5 +1,6 @@
 rootProject.name = "Study Application"
 include (
 	":app",
-	":coreUi"
+	":coreUi",
+	":datasource",
 )
