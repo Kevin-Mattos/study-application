@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
       # Runs a set of commands using the runners shell
-      - name: Validate App
-        run: ./gradlew build --continue
+      - name: Build App
+        run: ./gradlew build check --continue

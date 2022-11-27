@@ -5,6 +5,7 @@ object Versions {
 	const val kotlin_version = "1.6.10"
 
 	const val ktlint_version = "11.0.0"
+	const val detect_version = "1.22.0"
 
 	//libs
 	const val core_ktx_version = "1.7.0"
