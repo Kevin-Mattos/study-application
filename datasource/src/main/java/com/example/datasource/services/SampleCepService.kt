@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface SampleCepService {
-	@GET("/wsss/{cep}/json")
+	@GET("/ws/{cep}/json")
 	suspend fun getCep(@Path("cep") cep: String): Resource<CepResponse>
 }

@@ -1,6 +1,7 @@
 plugins {
-    id (BuildPlugins.androidApplication)
-    id (BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.androidApplication)
+    id(BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.ktLint) version Versions.ktlint_version
 }
 
 android {
@@ -25,7 +26,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles (
+            proguardFiles(
                 getDefaultProguardFile(AppConfig.proguardConsumerFile), AppConfig.proguardConsumerRules
             )
         }

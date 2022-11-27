@@ -18,12 +18,12 @@ class SampleFragment : ComposeStateFragment<CepResponse>() {
 	override fun OnSuccess(data: CepResponse?) {
 		Text(text = "teste do kevinho ${data?.logradouro}")
 	}
+}
 
-	class SampleStateViewModel(private val service: SampleCepService) :
-		StateViewModel<CepResponse>() {
+class SampleStateViewModel(private val service: SampleCepService) :
+	StateViewModel<CepResponse>() {
 
-		override suspend fun fetchValue(): Resource<CepResponse> {
-			return service.getCep("65900-850")
-		}
+	override suspend fun fetchValue(): Resource<CepResponse> {
+		return service.getCep("65900-850")
 	}
 }
