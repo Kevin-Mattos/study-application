@@ -3,4 +3,7 @@ include (
 	":app",
 	":coreUi",
 	":datasource",
+	":domain",
+	":domain:auth",
+	":data",
 )
