@@ -1,4 +1,4 @@
-package com.example.datasource
+package com.example.coreui.base
 
 
 sealed class Resource<T>(val data: T?) {

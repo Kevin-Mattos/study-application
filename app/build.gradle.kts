@@ -50,4 +50,7 @@ dependencies {
 
     implementation(project(path = ":coreUi"))
     implementation(project(path = ":datasource"))
+    implementation(project(path = ":data:auth"))
+    implementation(project(path = ":domain:auth"))
+    implementation(project(path = ":ui:featureauth"))
 }

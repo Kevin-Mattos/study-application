@@ -1,7 +1,6 @@
 package com.example.datasource.adapter
 
 import android.accounts.NetworkErrorException
-import com.example.datasource.Resource
 import com.example.datasource.models.response.ApiException
 import com.example.datasource.models.response.ErrorResponse
 import com.example.datasource.models.response.fromJson
@@ -16,23 +15,23 @@ import retrofit2.Response
 import java.io.IOException
 import java.lang.reflect.Type
 
-class ResourceCallAdapter(private val type: Type) :
-	CallAdapter<Resource<Type>, ResourceCall<Resource<Type>>> {
+class ResultCallAdapter(private val type: Type) :
+	CallAdapter<Result<Type>, ResultCall<Result<Type>>> {
 	override fun responseType(): Type {
 		return type
 	}
 
-	override fun adapt(call: Call<Resource<Type>>): ResourceCall<Resource<Type>> {
-		return ResourceCall(call)
+	override fun adapt(call: Call<Result<Type>>): ResultCall<Result<Type>> {
+		return ResultCall(call)
 	}
 }
 
 
-class ResourceCall<R>(
+class ResultCall<R>(
 	private val delegate: Call<R>
-) : Call<Resource<R>> {
+) : Call<Result<R>> {
 
-	override fun enqueue(callback: Callback<Resource<R>>) = delegate.enqueue(
+	override fun enqueue(callback: Callback<Result<R>>) = delegate.enqueue(
 		object : Callback<R> {
 
 			override fun onResponse(call: Call<R>, response: Response<R>) {
@@ -42,7 +41,7 @@ class ResourceCall<R>(
 					mapError(response)
 				}
 
-				callback.onResponse(this@ResourceCall, Response.success(result))
+				callback.onResponse(this@ResultCall, Response.success(result))
 			}
 
 			override fun onFailure(call: Call<R>, throwable: Throwable) {
@@ -50,17 +49,17 @@ class ResourceCall<R>(
 					is IOException -> NetworkErrorException(throwable)
 					else -> throwable
 				}
-				callback.onResponse(this@ResourceCall, Response.success(Resource.error(error)))
+				callback.onResponse(this@ResultCall, Response.success(Result.failure(error)))
 			}
 		}
 	)
 
 
-	fun mapSuccess(response: Response<R>): Resource<R> = Resource.success(response.body())
+	fun mapSuccess(response: Response<R>): Result<R> = Result.success(response.body()!!)
 
-	fun mapError(response: Response<R>): Resource<R> {
+	fun mapError(response: Response<R>): Result<R> {
 		val error = response.errorBody()?.serializeErrorBody()
-		return Resource.error(ApiException(error))
+		return Result.failure(ApiException(error))
 	}
 
 	fun ResponseBody.serializeErrorBody(): ErrorResponse? {
@@ -73,11 +72,11 @@ class ResourceCall<R>(
 		}
 	}
 
-	override fun clone(): Call<Resource<R>> {
-		return ResourceCall(delegate.clone())
+	override fun clone(): Call<Result<R>> {
+		return ResultCall(delegate.clone())
 	}
 
-	override fun execute(): Response<Resource<R>> {
+	override fun execute(): Response<Result<R>> {
 		throw NotImplementedError()
 	}
 

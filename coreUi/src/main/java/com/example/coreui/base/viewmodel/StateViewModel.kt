@@ -1,6 +1,6 @@
 package com.example.coreui.base.viewmodel
 
-import com.example.datasource.Resource
+import com.example.coreui.base.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

@@ -1,8 +1,11 @@
 package com.example.studyapplication
 
 import android.app.Application
+import com.example.auth.di.dataAuthModule
+import com.example.auth.di.domainAuthModule
 import com.example.coreui.di.coreUiModule
 import com.example.datasource.dataSourceModule
+import com.example.featureauth.di.uiAuthModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,7 +20,10 @@ class MainApplication : Application() {
             androidContext(this@MainApplication)
             modules(
                 coreUiModule,
-                dataSourceModule
+                dataSourceModule,
+                dataAuthModule,
+                domainAuthModule,
+                uiAuthModule
             )
         }
     }
