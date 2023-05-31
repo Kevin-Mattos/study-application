@@ -6,4 +6,5 @@ include (
 	":domain",
 	":domain:auth",
 	":data",
+	":data:auth",
 )
