@@ -11,7 +11,6 @@ import androidx.compose.ui.text.font.FontWeight
 import com.example.coreui.base.viewmodel.StateViewModel
 import com.example.coreui.components.ShimmerAnimation
 import com.example.coreui.components.ShimmerItemRow
-import com.example.datasource.Resource
 
 abstract class ComposeStateFragment<O> : ComposeFragment() {
 
@@ -34,7 +33,7 @@ abstract class ComposeStateFragment<O> : ComposeFragment() {
 	}
 
 	@Composable
-	abstract fun OnSuccess(data: O?)
+	abstract fun OnSuccess(data: O)
 
 	@Composable
 	open fun OnError(data: O?, throwable: Throwable?) {

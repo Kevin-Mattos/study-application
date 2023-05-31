@@ -2,7 +2,7 @@ package com.example.studyapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.coreui.SampleFragment
+import com.example.featureauth.SampleFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

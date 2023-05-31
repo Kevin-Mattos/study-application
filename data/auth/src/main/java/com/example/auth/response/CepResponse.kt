@@ -1,4 +1,4 @@
-package com.example.datasource.models.response
+package com.example.auth.response
 
 data class CepResponse(
 	val cep: String,

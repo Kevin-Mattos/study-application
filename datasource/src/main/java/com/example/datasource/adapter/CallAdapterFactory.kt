@@ -1,6 +1,5 @@
 package com.example.datasource.adapter
 
-import com.example.datasource.Resource
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
@@ -19,9 +18,9 @@ class CallAdapterFactory : CallAdapter.Factory() {
 				getParameterUpperBound(0, returnType as ParameterizedType)
 
 			when (getRawType(callType)) {
-				Resource::class.java -> {
+				Result::class.java -> {
 					val resultType = getParameterUpperBound(0, callType as ParameterizedType)
-					ResourceCallAdapter(resultType)
+					ResultCallAdapter(resultType)
 				}
 				else -> null
 			}

@@ -2,7 +2,6 @@ package com.example.datasource
 
 import com.example.datasource.adapter.CallAdapterFactory
 import com.example.datasource.environment.Environment
-import com.example.datasource.services.SampleCepService
 import com.google.gson.Gson
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -11,8 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val dataSourceModule = module {
 	single { defaultRetrofit() }
-
-	factory<SampleCepService> { createService(get()) }
 }
 
 fun defaultRetrofit(): Retrofit {
