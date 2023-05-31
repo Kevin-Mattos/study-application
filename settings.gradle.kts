@@ -7,4 +7,6 @@ include (
 	":domain:auth",
 	":data",
 	":data:auth",
+	":ui",
+	":ui:featureauth",
 )
